@@ -2,8 +2,8 @@ server:
   port: 8081
 
 spring:
-  application:
-    name: EMPLOYEE-SERVICE
+  #application:
+    #name: EMPLOYEE-SERVICE
   datasource:
     url: jdbc:postgresql://localhost/employee_db
     username: postgres
