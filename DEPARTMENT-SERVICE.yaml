@@ -4,8 +4,8 @@ server:
     #context-path: /DepartmentService
 
 spring:
-  application:
-    name: DEPARTMENT-SERVICE
+ # application:
+   # name: DEPARTMENT-SERVICE
   datasource:
     url: jdbc:postgresql://localhost/department_db
     username: postgres
