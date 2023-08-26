@@ -1,0 +1,50 @@
+server:
+  port: 8080
+
+spring:
+  #application:
+    #name: API-GATEWAY
+  cloud:
+    gateway:
+      discovery:
+        locator: # Spring Boot Creates Routes For Us To Eureka Server For Microservices and LoadBalancing, need to add service id in uri -> (http://host.docker.internal:8080/department-service/api/departments/v1/allDep)
+          enabled: true
+          lower-case-service-id: true # Service ID CaseSensitive Removal
+#      routes: # Creating Manually Routes To Eureka Server For Microservices and LoadBalancing, no need to add service id in uri -> (http://host.docker.internal:8080/api/departments/v1/allDep)
+#        - id: EMPLOYEE-SERVICE # Service ID
+#          uri: lb://EMPLOYEE-SERVICE # Load Balance URL
+#          predicates: # URI Path
+#            - Path=/api/employees/**
+#        - id: DEPARTMENT-SERVICE # Service ID
+#          uri: lb://DEPARTMENT-SERVICE # Load Balance URL
+#          predicates: # URI Path
+#            - Path=/api/departments/**
+
+logging:
+  level:
+    org.springframework.cloud.gateway.handler.RoutePredicateHandlerMapping: DEBUG
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+management:
+  info:
+    env:
+      enabled: true
+  endpoint:
+    health:
+      show-details: always
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+info:
+  app:
+    name: API-GATEWAY
+    description: API-GATEWAY To ROUTES HTTP Calls to Eureka Server
+    version: V1.0
