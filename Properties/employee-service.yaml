@@ -18,6 +18,10 @@ spring:
 #  config:
 #    import: optional:configserver:http://localhost:8888
 
+test:
+  config:
+    server: Message From Properties
+
 eureka:
   client:
     service-url:
