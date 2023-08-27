@@ -20,26 +20,12 @@ spring:
 
 test:
   config:
-    server: Message From Properties Test Updated
+    server: Message From Properties
 
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
-
-management:
-  info:
-    env:
-      enabled: true
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-  endpoint:
-    health:
-      show-details: always
-    shutdown:
-      enabled: true
 
 info:
   app:
