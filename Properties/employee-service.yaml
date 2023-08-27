@@ -22,6 +22,20 @@ test:
   config:
     server: Message From Properties Updated
 
+management:
+  endpoint:
+    health:
+      show-details: always
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  info:
+    env:
+      enabled: true
+
 eureka:
   client:
     service-url:
