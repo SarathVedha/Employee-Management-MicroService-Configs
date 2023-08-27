@@ -20,7 +20,7 @@ spring:
 
 test:
   config:
-    server: Message From Properties Updated
+    server: Message From Properties Test Updated
 
 eureka:
   client:
