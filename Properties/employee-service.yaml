@@ -18,6 +18,7 @@ spring:
 #  config:
 #    import: optional:configserver:http://localhost:8888
 
+# http://localhost:8080/employee-service/actuator/refresh
 test:
   config:
     server: Message From Properties Updated
