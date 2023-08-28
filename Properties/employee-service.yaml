@@ -21,7 +21,7 @@ spring:
 # http://localhost:8080/employee-service/actuator/refresh
 test:
   config:
-    server: Message From Properties Updated
+    server: Message From Properties Updated MQ
 
 management:
   endpoint:
