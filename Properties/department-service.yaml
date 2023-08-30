@@ -41,4 +41,5 @@ info:
   app:
     name: Department Service
     description: Department CURD REST APIs
+    environment: ${spring.profiles.active}
     version: v1.0
