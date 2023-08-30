@@ -49,4 +49,5 @@ info:
   app:
     name: API-GATEWAY
     description: API-GATEWAY To ROUTES HTTP Calls to Eureka Server
+    environment: ${spring.profiles.active}
     version: v1.0
