@@ -18,6 +18,10 @@ spring:
 #          uri: lb://DEPARTMENT-SERVICE # Load Balance URL
 #          predicates: # URI Path
 #            - Path=/api/departments/**
+#        - id: ORGANIZATION-SERVICE # Service ID
+#          uri: lb://ORGANIZATION-SERVICE # Load Balance URL
+#          predicates: # URI Path
+#            - Path=/api/organization/**
 
 logging:
   level:
