@@ -61,6 +61,8 @@ management:
   info:
     env:
       enabled: true
+    java:
+      enabled: true
   tracing: # Zipkin
     sampling: # Default value is 0.1 mean only 10% of the REST Calls will be traced. 1.0 Will trace each REST Call and get a display.
       probability: 1.0
@@ -79,7 +81,8 @@ logging:
 
 info:
   app:
-    name: Employee Service
+    name: ${spring.application.name}
     description: Employee Service REST CURD APIs
     environment: ${spring.profiles.active}
-    version: v1.0
+    version: '@project.version@' # Reading From Pom
+    spring-cloud-version: '@spring-cloud.version@'
