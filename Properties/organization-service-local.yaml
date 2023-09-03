@@ -33,29 +33,32 @@ management:
   info:
     env:
       enabled: true
+    java:
+      enabled: true
   endpoints:
     web:
       exposure:
         include: "*"
-  tracing:
-    sampling:
+  tracing: # Zipkin
+    sampling: # Default value is 0.1 mean only 10% of the REST Calls will be traced. 1.0 Will trace each REST Call and get a display.
       probability: 1.0
   zipkin:
-    tracing:
+    tracing: # ZipKin Will be Autoconfigured in this url(http://localhost:9411/api/v2/spans), custom means you can add.
       endpoint: http://localhost:9411/api/v2/spans
-  health:
+  health: # For Circuit Breaker
     circuitbreakers:
       enabled: true
 
 logging:
   pattern:
     level: '%5p [${spring.application.name}, %X{traceId:-}, %X{spanId:-}]'
-  level:
+  level: # Enable DEBUG For REST WEB Logs
     org.springframework.web: DEBUG
 
 info:
   app:
-    name: ORGANIZATION-SERVICE
+    name: ${spring.application.name}
     description: Organization Service Provides CURD REST APIs
     environment: ${spring.profiles.active}
-    version: v1.0
+    version: '@project.version@' # Reading From Pom
+    spring-cloud-version: '@spring-cloud.version@'
