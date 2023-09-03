@@ -2,8 +2,6 @@ server:
   port: 8082
 
 spring:
-#  application:
-#    name: DEPARTMENT-SERVICE
   datasource:
     url: jdbc:postgresql://localhost/department_db
     username: postgres
@@ -15,8 +13,11 @@ spring:
     properties:
       hibernate:
         format_sql: true
-#  config:
-#    import: optional:configserver:http://localhost:8888
+  rabbitmq: # RabitMQ
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 
 eureka:
   client:
@@ -36,6 +37,18 @@ management:
   info:
     env:
       enabled: true
+  tracing:
+    sampling: # Default value is 0.1 mean only 10% of the REST Calls will be traced. 1.0 Will trace each REST Call and get a display.
+      probability: 1.0
+  zipkin:
+    tracing: # ZipKin Will be Autoconfigured in this url(http://localhost:9411/api/v2/spans), custom means you can add.
+      endpoint: http://localhost:9411/api/v2/spans
+
+logging:
+  pattern:
+    level: '%5p [${spring.application.name}, %X{traceId:-}, %X{spanId:-}]'
+  level: # Enable DEBUG For REST WEB Logs
+    org.springframework.web: DEBUG
 
 info:
   app:
