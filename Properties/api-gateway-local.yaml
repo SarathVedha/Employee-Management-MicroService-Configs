@@ -2,6 +2,10 @@ server:
   port: 8080
 
 spring:
+  boot:
+    admin:
+      client:
+        url: http://localhost:9090
   cloud:
     gateway:
       discovery:
@@ -11,13 +15,13 @@ spring:
       globalcors:
         corsConfigurations:
           '[/**]':
-            allowedOrigins: "http://localhost:3000/"  #"*"
+            allowedOrigins: "http://localhost:3000/"  # For All Use"*", Known Server App URL you can Mention (React -> http://localhost:3000/)
             allowedMethods:
               - GET
               - POST
               - PUT
               - DELETE
-  rabbitmq:
+  rabbitmq: # RabbitMQ For Config Bus
     host: localhost
     port: 5672
     username: guest
@@ -46,6 +50,8 @@ management:
     env:
       enabled: true
     java:
+      enabled: true
+    os:
       enabled: true
   endpoint:
     health:
@@ -77,3 +83,4 @@ info:
     environment: ${spring.profiles.active}
     version: '@project.version@' # Reading From Pom
     spring-cloud-version: '@spring-cloud.version@'
+    spring-admin-version: '@spring-boot-admin.version@'
